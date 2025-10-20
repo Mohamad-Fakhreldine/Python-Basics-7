@@ -9,6 +9,24 @@ class Queue:
         self.head = None
         self.tail = None
 
+    def enqueue_value(self):
+        node_data = input("Choose a value for the new element: ")
+        new_node = Node(node_data)
+        if self.head is None:
+            self.head = self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+            print("Value successfully added.")
+
+    def dequeue_value(self):
+        if self.head is None:
+            print("The queue is empty.")
+        else:
+            self.head = self.head.next
+            print("Value successfully deleted.")
+
+
 
 prompt = """
 1. Add an element to the end of the queue.
@@ -22,11 +40,15 @@ prompt = """
 9. Exit.
 """
 
+q = Queue()
+
 while True:
     print(prompt)
-    choice = input("Choose an option.")
+    choice = input("Choose an option: ")
     if choice == "1":
-        print("Not implemented yet")
+        q.enqueue_value()
+    elif choice == "2":
+        q.dequeue_value()
     elif choice == "9":
         exit()
     else:
