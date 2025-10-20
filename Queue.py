@@ -33,6 +33,12 @@ class Queue:
             current = current.next
         return
 
+    def check_first(self):
+        if self.head is None:
+            print("The queue is empty.")
+        else:
+            print("The next element in the queue is: ", self.head)
+
 prompt = """
 1. Add an element to the end of the queue.
 2. Remove the element at the front of the queue.
@@ -55,6 +61,8 @@ while True:
     elif choice == "2":
         q.dequeue_value()
     elif choice == "3":
+        q.check_first()
+    elif choice == "4":
         q.display_queue()
     elif choice == "9":
         exit()
