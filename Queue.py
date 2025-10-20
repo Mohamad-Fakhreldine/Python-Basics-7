@@ -45,6 +45,14 @@ class Queue:
         else:
             print("The queue is not empty.")
 
+    def total_elements(self):
+        count = 0
+        current = self.head
+        while current is not None:
+            count += 1
+            current = current.next
+        print("The total number of elements in the queue is: ", count)
+
 prompt = """
 1. Add an element to the end of the queue.
 2. Remove the element at the front of the queue.
@@ -72,6 +80,8 @@ while True:
         q.display_queue()
     elif choice == "5":
         q.is_empty()
+    elif choice == "6":
+        q.total_elements()
     elif choice == "9":
         exit()
     else:
