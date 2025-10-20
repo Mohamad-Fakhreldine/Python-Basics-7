@@ -53,6 +53,34 @@ class Queue:
             current = current.next
         print("The total number of elements in the queue is: ", count)
 
+    #   def reverse_queue(self):
+    #       #Time Complexity: O(n^2)
+    #       current = self.head
+    #       while current.next is not None:
+    #           current = current.next
+    #       self.tail = self.head
+    #       self.head = current
+    #       temp = self.tail
+    #       while current != temp:
+    #           while temp.next is not current and current is not self.tail:
+    #               temp = temp.next
+    #           current.next = temp
+    #           current = current.next
+    #           self.tail.next = None
+        
+    #Time Complexity: O(n)
+    def reverse_queue(self):
+    prev = None
+    current = self.head
+    self.tail = self.head
+    while current is not None:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    self.head = prev
+
+
 prompt = """
 1. Add an element to the end of the queue.
 2. Remove the element at the front of the queue.
@@ -82,6 +110,8 @@ while True:
         q.is_empty()
     elif choice == "6":
         q.total_elements()
+    elif choice == "7":
+        q.reverse_queue()
     elif choice == "9":
         exit()
     else:
