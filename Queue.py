@@ -39,6 +39,12 @@ class Queue:
         else:
             print("The next element in the queue is: ", self.head)
 
+    def is_empty(self):
+        if self.head is None:
+            print("The queue is empty.")
+        else:
+            print("The queue is not empty.")
+
 prompt = """
 1. Add an element to the end of the queue.
 2. Remove the element at the front of the queue.
@@ -64,6 +70,8 @@ while True:
         q.check_first()
     elif choice == "4":
         q.display_queue()
+    elif choice == "5":
+        q.is_empty()
     elif choice == "9":
         exit()
     else:
