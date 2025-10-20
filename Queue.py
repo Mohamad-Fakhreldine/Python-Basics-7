@@ -26,7 +26,12 @@ class Queue:
             self.head = self.head.next
             print("Value successfully deleted.")
 
-
+    def display_queue(self):
+        current = self.head
+        while current is not None:
+            print(current.data, " <- ",end=" ")
+            current = current.next
+        return
 
 prompt = """
 1. Add an element to the end of the queue.
@@ -49,6 +54,8 @@ while True:
         q.enqueue_value()
     elif choice == "2":
         q.dequeue_value()
+    elif choice == "3":
+        q.display_queue()
     elif choice == "9":
         exit()
     else:
