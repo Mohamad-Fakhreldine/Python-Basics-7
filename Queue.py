@@ -70,17 +70,24 @@ class Queue:
         
     #Time Complexity: O(n)
     def reverse_queue(self):
-    prev = None
-    current = self.head
-    self.tail = self.head
-    while current is not None:
-        next_node = current.next
-        current.next = prev
-        prev = current
-        current = next_node
-    self.head = prev
+        prev = None
+        current = self.head
+        self.tail = self.head
+        while current is not None:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
 
-
+    def convert_list(self):
+        new_list = []
+        current = self.head
+        while current is not None:
+            new_list.append(int(current.data))
+            current = current.next
+        print("The new list is: ", new_list)
+    
 prompt = """
 1. Add an element to the end of the queue.
 2. Remove the element at the front of the queue.
@@ -112,6 +119,8 @@ while True:
         q.total_elements()
     elif choice == "7":
         q.reverse_queue()
+    elif choice == "8":
+        q.convert_list()
     elif choice == "9":
         exit()
     else:
