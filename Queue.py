@@ -1,3 +1,15 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+    
+
+class Queue:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+
 prompt = """
 1. Add an element to the end of the queue.
 2. Remove the element at the front of the queue.
